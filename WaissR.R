@@ -57,7 +57,7 @@ icons <- makeAwesomeIcon(icon= 'star', library='fa', markerColor = 'purple')
 m <- leaflet() %>%
   ## Basemap
   ##addTiles(tile)        %>%
-  addProviderTiles(providers$Stamen.Toner)  %>%
+  addProviderTiles(providers$Esri.NatGeoWorldMap)  %>%
   
   ## Add a zoom reset button
   addResetMapButton() %>%
@@ -68,7 +68,7 @@ m <- leaflet() %>%
   ## define the view
   setView(lng = 18.413029, 
           lat =  43.856430, 
-          zoom = 5 ) %>%
+          zoom = 5.5 ) %>%
 
   
   ## Add the polygons of the shapefiles
@@ -141,12 +141,11 @@ m <- leaflet() %>%
   
   ## Add the layer selector which allows you to navigate the possibilities offered by this map
   
-  addLayersControl(baseGroups = c("Places",
-                                  "Empty layer"),
+  addLayersControl(baseGroups = c("Places"),
                    
                   # overlayGroups = c("Sites"),
                    
-                   options = layersControlOptions(collapsed = TRUE)) %>%
+                   options = layersControlOptions(collapsed = FALSE)) %>%
   
   ## Hide the layers that the users can choose as they like
   hideGroup(c("Empty",
